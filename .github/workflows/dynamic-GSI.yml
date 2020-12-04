@@ -3,10 +3,10 @@ name: Building Dynamic GSI..
 on: [push]
 
 env:
-  ROM_URL: https://tdrive.elytra8.workers.dev/RevengeOS-4.0-R-OFFICIAL-phoenix-20201202-0537.zip
-  ROM_NAME: Generic
-  FZIPNAME: RevengeOS-4.0-R-OFFICIAL-phoenix-20201202-0537.zip
-  ZIP_NAME: Generic_dynamic
+  ROM_URL: https://tdrive.elytra8.workers.dev/OnePlus8Oxygen_15.I.30_OTA_0300_all_2009301821_09620bbd4a.zip
+  ROM_NAME: OxygenOS
+  FZIPNAME: OnePlus8Oxygen_15.I.30_OTA_0300_all_2009301821_09620bbd4a.zip
+  ZIP_NAME: OxygenOS_dynamic
   TZ: Asia/Kolkata
 jobs:
   build:
@@ -32,7 +32,7 @@ jobs:
 
        
        - name: Clone ErfanGSI Source Code
-         run: git clone --recurse-submodules https://github.com/nnippon/ErfanGSIs.git &> /dev/null
+         run: git clone --recurse-submodules https://github.com/Area69Lab/ErfanGSIs.git &> /dev/null
        
        - name: Setting up ErfanGSI requirements
          run: |
