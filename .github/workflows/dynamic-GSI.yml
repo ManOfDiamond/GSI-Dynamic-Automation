@@ -3,10 +3,10 @@ name: Building Dynamic GSI..
 on: [push]
 
 env:
-  ROM_URL: https://tdrive.elytra8.workers.dev/redfin-rq1a.201205.011-factory-2e49bd21.zip
-  ROM_NAME: Pixel
-  FZIPNAME: redfin-rq1a.201205.011-factory-2e49bd21.zip
-  ZIP_NAME: Pixel5_dynamic
+  ROM_URL: https://tdrive.elytra8.workers.dev/OnePlus7ProOxygen_13.W.45_OTA_045_all_2010191035_181a6b.zip
+  ROM_NAME: OxygenOS
+  FZIPNAME: OnePlus7ProOxygen_13.W.45_OTA_045_all_2010191035_181a6b.zip
+  ZIP_NAME: OnePlus7Pro_dynamic
   TZ: Asia/Kolkata
 jobs:
   build:
