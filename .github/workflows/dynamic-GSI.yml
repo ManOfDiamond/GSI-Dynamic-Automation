@@ -3,10 +3,10 @@ name: Building Dynamic GSI..
 on: [push]
 
 env:
-  ROM_URL: https://tdrive.elytra8.workers.dev/OnePlus7ProOxygen_13.W.45_OTA_045_all_2010191035_181a6b.zip
+  ROM_URL: https://tdrive.elytra8.workers.dev/OnePlus7ProHydrogen_21.H.31_OTA_031_all_2011091840_0a74aa44f9c8c7.zip
   ROM_NAME: OxygenOS
-  FZIPNAME: OnePlus7ProOxygen_13.W.45_OTA_045_all_2010191035_181a6b.zip
-  ZIP_NAME: OnePlus7Pro
+  FZIPNAME: OnePlus7ProHydrogen_21.H.31_OTA_031_all_2011091840_0a74aa44f9c8c7.zip
+  ZIP_NAME: OnePlus7Pro_Dynamic
   TZ: Asia/Kolkata
 jobs:
   build:
@@ -31,23 +31,21 @@ jobs:
             sudo -E apt-get -qq install git openjdk-8-jdk wget expect &> /dev/null 
 
        
-       - name: Clone ErfanGSI Source Code
+       - name: Clone ErfanGSI Tools
          run: git clone --recurse-submodules https://github.com/Area69Lab/ErfanGSIs &> /dev/null
        
-       - name: Setting up ErfanGSI requirements
+       - name: Setting up ErfanGSI Tools requirements
          run: |
               sudo chmod -R 777 ErfanGSIs
               cd ErfanGSIs
               sudo bash setup.sh &> /dev/null
        
-       - name: Dynamic Setup
+       - name: Make Dynamic GSI
          run: |
               cd ErfanGSIs
               wget $ROM_URL &> /dev/null
-              mkdir working
-              mkdir output
               sudo bash dyn.sh $ROM_NAME $FZIPNAME
-              sudo bash make.sh working/system $ROM_NAME AB output && sudo bash make.sh working/system $ROM_NAME Aonly output
+              sudo bash url2GSI.sh working/system $ROM_NAME
        - name: Print build info
          run: |
               cat ErfanGSIs/output/*-AB-*.txt
