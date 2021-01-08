@@ -32,7 +32,7 @@ jobs:
 
        
        - name: Clone ErfanGSI Tools
-         run: git clone --recurse-submodules https://github.com/Area69Lab/ErfanGSIs &> /dev/null
+         run: git clone --recurse-submodules https://github.com/ManOfDiamond/ErfanGSIs &> /dev/null
        
        - name: Setting up ErfanGSI Tools requirements
          run: |
@@ -63,7 +63,7 @@ jobs:
               expect \"sftp> \"
               send \"cd ${{ secrets.SFDIR }}\r\"
               set timeout -1
-              send \"put $ZIP_NAME-GSI-Aonly-nippongsi.7z\r\"
+              send \"put $ZIP_NAME-GSI-Aonly-Diamond-gsi.7z\r\"
               expect \"Uploading\"
               expect \"100%\"
               expect \"sftp>\"
@@ -72,7 +72,7 @@ jobs:
        - name: Zip AB and upload 
          run: |
               cd ErfanGSIs/output
-              zip -r $ZIP_NAME-GSI-AB-nippongsi.7z *-AB-*.img &> /dev/null
+              zip -r $ZIP_NAME-GSI-AB-Diamond_gsi.7z *-AB-*.img &> /dev/null
               expect -c " 
               spawn sftp ${{ secrets.SFUSER }}@frs.sourceforge.net
               expect \"Password\"        
@@ -80,7 +80,7 @@ jobs:
               expect \"sftp> \"
               send \"cd ${{ secrets.SFDIR }}\r\"
               set timeout -1
-              send \"put $ZIP_NAME-GSI-AB-nippongsi.7z\r\"
+              send \"put $ZIP_NAME-GSI-AB-Diamond-gsi.7z\r\"
               expect \"Uploading\"
               expect \"100%\"
               expect \"sftp>\"
